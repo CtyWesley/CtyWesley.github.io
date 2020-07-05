@@ -2,7 +2,7 @@
     "appName": "DropRateCalc",
     "description": "This App Displays Drop Rates for items.",
     "configUrl": "https://ctywesley.github.io/DropRateCalc/appconfig.json",
-    "iconUrl": "https://ctywesley.github.io/DropRateCalc/images/AppIcon.jpg",
+    "iconUrl": "https://ctywesley.github.io/DropRateCalc/images/icon.jpg",
     "defaultWidth": 300,
     "defaultHeight": 300,
     "minWidth": 200,
