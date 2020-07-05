@@ -1,0 +1,339 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/nis.css">
+    <link rel="stylesheet" type="text/css" href="./css/skinstyle.css"><!--stylesheet with all nis styles (Will be part of public resources so feel free to copy/paste)-->
+    <script type="text/javascript" src="./scripts/alt1lib.js"></script><!--alt1 wrapper library (Will be part of public resources so feel free to copy/paste)-->
+    <script type="text/javascript" src="./scripts/imagedetect.js"></script><!--Basic alt1 image processing library-->
+    <script type="text/javascript">
+        capturecenter = { x: 300, y: 300 };
+        xpcallback = false;
+        xpcountercallback = false;
+        currenttooltip = "";
+        let operator = "add";
+        let firstnum = 0;
+        let secondnum = 0;
+        let numbers = 0;
+        //This object is used to set the config for this app
+        var exampleconfig = {
+            appName: "DropRateCalcapp",
+            description: "DropRateCalc app",
+            appUrl: "/apps/alt1/example/",//app startup url relative to current domain
+            configUrl: "/apps/alt1/example/appconfig.json",//link to a json file which contains this object, this link uniquely identifies your app
+            defaultWidth: 300,//preferred sizes, can be overwritten by alt1
+            defaultHeight: 300,
+            minWidth: 200,
+            minHeight: 200,
+            maxWidth: 1000,
+            maxHeight: 1000,
+
+            //used to signal alt1 that this app can handle certain requests like a player lookup when the user presses alt+1 over a player name.
+            //{handlerName:"player",handlerUrl:"/myUrl/?player=%s",handlerScript:"setPlayer('%s');"}
+            requestHandlers: [],
+
+            //will open this app when you press alt1 while hovering over drop blue partyhat etc (up to 10 currently)
+            activators: ["Drop Blue partyhat", "Drop Purple partyhat", "regex:^Activate (?<abil>[\w ]+)$"],
+
+            //a comma separate list of required permissions for this app to run
+            permissions: "pixel,gamestate,overlay"
+        };
+
+        //reference the appconfig.json file as config, this file can also be referenced in an alt1 link in any browser
+        //clicking this link in any browser will start alt1 and show an add app dialog
+        //<a href="alt1:addapp:http://runeapps.org/apps/alt1/example/appconfig.json">Add example app</a>
+        //only supported in alt1 1.1+
+        if (window.alt1 && alt1.versionint > 1001000) { alt1.identifyAppUrl("appconfig.json"); }
+
+        //i'm crippled without this function
+        function elid(id) { return document.getElementById(id); }
+
+        //this function will be called when the user presses alt1 over anything
+        function alt1onrightclick(obj) {
+            message("Alt+1 (" + obj.x + ":" + obj.y + ") - \"" + obj.text + "\"");
+            capturecenter = { x: obj.x, y: obj.y };
+            docapture();
+        }
+
+        //captures the area around the last alt+1 press and displays it on a canvas
+        function docapture() {
+            message(operator);
+            var size, rawcapture, image, ctx, cnv, capturex, capturey, color, pixelindex, red, green, blue;
+            cnv = elid("capturecnv");
+            ctx = cnv.getContext("2d");
+
+            //get the location for capture
+            size = cnv.getBoundingClientRect();
+            capturex = capturecenter.x - Math.round(size.width / 2);
+            capturey = capturecenter.y - Math.round(size.height / 2);
+
+            //do capture
+            try {
+                rawcapture = a1lib.getregion(capturex, capturey, size.width, size.height);
+
+            }
+            catch (ex) { message(ex) }//rawcapture is an imageBuffer object
+            //it has width, height and a Uint8Array called data, this array holds all pixel data in one dimension
+
+            if (!rawcapture) {//check if capture succeeded
+                message("Image capture failed");
+                return;
+            }
+
+            //calculate the index of the pixel underneath the mouse
+            //multiply the x-coord by 4 as every pixel has 4 components (red,green,blue,alpha)
+            pixelindex = (capturecenter.x - capturex) * 4;
+            //multiply the y-coord by 4*width
+            pixelindex += (capturecenter.y - capturey) * 4 * rawcapture.width;
+
+            red = rawcapture.data[pixelindex + 0]//index+0 is red
+            green = rawcapture.data[pixelindex + 1]//index+1 is green
+            blue = rawcapture.data[pixelindex + 2]//index+2 is blue
+            //index+3 is alpha, we rarely need that
+
+            //display the color in our output div
+            elid("coloroutput").style.background = "rgb(" + red + "," + green + "," + blue + ")";
+            elid("coloroutput").innerHTML = "rgb:<br>" + red + " - " + green + " - " + blue;
+
+            //to actually draw the buffer we sadly need to convert it to an image as it's not a real imageBuffer object (otherwise we could use the ctx.putImageData function)
+            //this function draw the buffer pixel by pixel and thus is quite slow on big images
+            image = rawcapture.toImage();
+
+            //reset the canvas and draw the image
+            cnv.width = image.width;
+            cnv.height = image.height;
+            ctx.drawImage(image, 0, 0);
+        }
+
+        function toggletooltip() {
+            var tooltips;
+            tooltips = ["Hi!", "Good morning", "whoosh", "Don't mind me"];
+            if (currenttooltip == "") {
+                currenttooltip = tooltips[Math.floor(Math.random() * tooltips.length)];
+                if (!alt1.setTooltip(currenttooltip)) {
+                    currenttooltip = "";
+                    message("No tooltip permission");
+                }
+            }
+            else {
+                currenttooltip = "";
+                alt1.clearTooltip();
+            }
+        }
+
+        function xprise(str) {
+            message("Xp rise: \"" + str + "\"");
+        }
+
+        function xpcounter(obj) {
+            var a, str;
+            str = "";
+            for (a in obj.counters) {
+                str += obj.counters[a].skill + " " + obj.counters[a].text + " - ";
+            }
+            message("Xp: " + str);
+        }
+
+        function message(str) {
+            elid("eventlog").innerHTML = str + "\n" + elid("eventlog").innerHTML;
+        }
+
+        function start() {
+            if (window.alt1) {
+                message("Page loaded, alt1 recognised.");
+                message("Alt1 version: " + alt1.version);
+                message("Press alt-1 to capture.");
+
+                if (alt1.permissionInstalled) {
+                    console.log(JSON.parse(alt1.openInfo));
+                }
+                //dump all events onto the console (right-click the settings spanner to view)
+                for (var a in alt1.events) {
+                    alt1.events[a].push(function (e) { console.log(e); });
+                }
+            }
+            else {
+                message("Page loaded, alt1 not recognised.");
+            }
+
+        }
+
+        function threepress() {
+
+            if (numbers % 2 == 0) {
+                firstnum = 3
+                message("firstnum = " + firstnum)
+                numbers++;
+            }
+            else {
+                secondnum = 3
+                message("secondnum = " + secondnum)
+                numbers++;
+            }
+        }
+
+        function fourpress() {
+            if (numbers % 2 == 0) {
+                firstnum = 4
+                message("firstnum = " + firstnum)
+                numbers++;
+
+            }
+            else {
+                secondnum = 4
+                message("secondnum = " + secondnum)
+                numbers++;
+            }
+        }
+
+        function calc() {
+
+            switch (operator) {
+
+                case "add":
+                    message(firstnum + secondnum);
+
+                    break;
+
+                default: message("No Operator");
+                    break;
+            }
+        }
+    </script>
+    <style type="text/css">
+        #eventlog {
+            position: absolute;
+            top: 210px;
+            right: 5px;
+            bottom: 5px;
+            left: 5px;
+            white-space: pre;
+            background: rgba(0,0,0,0.5);
+            outline: 1px solid gray;
+            padding: 5px;
+            font-family: monospace;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        #capturecnv {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: 200px;
+            width: calc(100% - 130px);
+            background: url('transblocks.png');
+            outline: 1px solid gray;
+        }
+
+
+        #secondbody {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: 200px;
+            width: calc(100% - 130px);
+            outline: 1px solid gray;
+        }
+
+
+
+
+        #xpdroptoggle {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 90px;
+        }
+
+        #docapturebutton {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 90px;
+        }
+
+
+        #buttonone {
+            position: absolute;
+            top: 80px;
+            right: 0px;
+            width: 90px;
+        }
+
+        #buttontwo {
+            position: absolute;
+            top: 120px;
+            right: 0px;
+            width: 90px;
+        }
+
+        #buttonthree {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 90px;
+        }
+
+        #buttonfour {
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            width: 90px;
+        }
+
+        #buttoncalc {
+            position: absolute;
+            top: 80px;
+            right: 0px;
+            width: 90px;
+        }
+
+        #tooltipbutton {
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            width: 90px;
+        }
+
+        #xpcountertoggle {
+            position: absolute;
+            top: 120px;
+            right: 0px;
+            width: 90px;
+        }
+
+        #coloroutput {
+            position: absolute;
+            top: 165px;
+            height: 40px;
+            width: 115px;
+            right: 5px;
+            outline: 1px solid gray;
+            color: white;
+            text-shadow: 1px 1px 0px black;
+        }
+    </style>
+    <script>(function n() { !function () { function e(e, t, n) { t = t || {}; var r = e.ownerDocument || e, i = r.createEvent ? r.createEvent("CustomEvent") : r.createEventObject(); i.initCustomEvent && i.initCustomEvent(t.type, !!t.bubbles, !!t.cancelable, t.detail); for (var a in t) i[a] = t[a]; return setTimeout(function () { try { e.dispatchEvent ? e.dispatchEvent(i) : e.fireEvent("on" + t.type, r.createEventObject()) } catch (n) { var a = e["listen" + t.type]; if (a) for (var o = 0; o < a.length; ++o)try { a[o].call(e, i) } catch (e) { } } n() }, 0), this } function t(e, t, n) { function r(e, t) { try { var n = e.ownerDocument; if (n.createEventObject) { var r = n.createEventObject(); e.fireEvent("on" + t, r) } else r = n.createEvent("HTMLEvents"), r.initEvent(t, !0, !0), e.dispatchEvent(r) } catch (e) { } } var i = !0, a = e.className && e.className.indexOf("fancified") != -1; if (window.jQuery) { var o = window.jQuery(e); try { if (o.selectBoxIt) o.selectBoxIt("selectOption", o.val()); else if (o.data("chosen") || o.chosen) o.trigger("chosen:updated").trigger("liszt:updated"); else if (o.data("chooserElement")) o.trigger("change"); else if (o.fancySelect) o.get("fancySelect").select("value", o.val()); else if (o.selectBox) o.selectBox("value", o.val()); else if (o.selectric) o.selectric("refresh"); else if (o.coreUISelect) { var s = o.data("coreUISelect"); s.isSelectShow = !0, s.changeDropdownData(), s.isSelectShow = !1 } else if (o.data("myJSPulldownObject")) { var l = o.data("myJSPulldownObject"); l.setToValue(o.val()) } else if (o.fancyfields) o.setVal(o.val()); else if (o.data("select2")); else if (o.data("selectize")) i = !1, o.data("selectize").setValue(o.val()); else if (o.hasClass("fancified")) o.trigger("update"); else if (o.selectmenu) { var c = o.val(); try { o.selectmenu("value", o[0].options[0].value) } catch (e) { } o.selectmenu("value", c) } else o.hasClass("select-hidden") && o.next("div.select-styled").length && o.next("div.select-styled").next(".select-options").length && (ulElement = o.next("div.select-styled").next(".select-options"), liElement = ulElement.find("li[rel='" + o.val() + "']"), liElement.click()); o.trigger("change") } catch (e) { } } i && (a && r(e, "update"), r(e, "change"), r(e, "blur")), n() } function n(t, n, r, i) { var a = t.value; e(t, { type: "keydown", keyCode: n, which: n, charCode: n, bubbles: !0 }, function () { e(t, { type: "keypress", keyCode: n, which: n, charCode: n, bubbles: !0 }, function () { setTimeout(function () { var o = t.value; a == o && (t.value = r), e(t, { type: "input", keyCode: n, which: n, charCode: n, bubbles: !0 }, function () { e(t, { type: "keyup", keyCode: n, which: n, charCode: n, bubbles: !0 }, function () { i() }) }) }, 1) }) }) } function r(e, t, i, a) { if (!t || "" == t) return void a(); var o = t.charCodeAt(0); i += t.charAt(0), n(e, o, i, function () { r(e, t.substring(1), i, a) }) } function i(t, n, r) { if (window.abineTriggerChangeInProgress) return void setTimeout(function () { i(t, n, r) }, 100); t.setAttribute("mmautofilling", "now"), t.focus(), t.value = n; var a = !0; window.abineTriggerChangeInProgress = !0; try { if (window.jQuery) { var o = window.jQuery(t); if (o.data("rawMaskFn") || o.mask || o.CardPhoneFormatting) o.focus().val(n).trigger("input").trigger("paste"); else if (o.next(".inner").find(".options").length) { a = !1; var s = o.next(".inner").find(".options"), l = s.find("span"); l.each(function () { var e = $(this), t = $(e).html(); t.toLowerCase().indexOf(n) > -1 && $(e).click() }) } } } catch (e) { } t.defaultValue = n; try { var c = t._valueTracker; c && c.setValue(n + "old") } catch (e) { } try { t.__preactattr_ && t.__preactattr_.onChange && (t.value = n, t.__preactattr_.onChange({ target: t }), t.click()) } catch (e) { } try { var u = new Event("input", { bubbles: !0, cancelable: !0, data: n }); u.simulated = !0, t.dispatchEvent(u) } catch (e) { } try { e(t, { type: "keyup", keyCode: 38, which: 38, charCode: 38, bubbles: !0 }, function () { }) } catch (e) { } a ? e(t, { type: "change" }, function () { e(t, { type: "blur" }, function () { window.abineTriggerChangeInProgress = !1, t.removeAttribute("mmautofilling"), r() }) }) : (t.removeAttribute("mmautofilling"), window.abineTriggerChangeInProgress = !1, r()) } function a(t, n, a) { try { t.ownerDocument.defaultView.focus() } catch (e) { } e(t, { type: "focus" }, function () { e(t, { type: "click" }, function () { r(t, n + "\n", "", function () { i(t, n, function () { e(document, { type: "abineFilled" }, function () { a() }) }) }) }) }) } function o(n, r, i, a) { var o = /[\s]+/g, s = (r || "").toLowerCase().replace(o, ""), l = function () { e(document, { type: "abineFilled" }, function () { a() }) }, c = !1, u = !1, d = n.getElementsByTagName("option"); if (d && d.length > 0) { for (var h = -1, f = 0; f < d.length; f++) { var p = (d[f].text || "").toLowerCase().replace(o, ""), m = (d[f].getAttribute("value") || "").toLowerCase().replace(o, ""); if (m == s || p == s) { d[f].selected || (c = !0, d[f].selected = !0), u = !0; break } h == -1 && p.indexOf(s) != -1 && (h = f) } u || h == -1 || i || d[h].selected || (c = !0, d[h].selected = !0, u = !0) } n.setAttribute("abineFillResponse", u), c ? t(n, r, l) : l() } function s() { var e = document.getElementsByClassName("abineFillTarget"); if (e.length > 0) return e[0]; for (var t = 0; t < frames.length; t++)try { var e = frames[t].document.getElementsByClassName("abineFillTarget"); if (e.length > 0) return e[0] } catch (e) { } return null } function l() { var n = document.createElement("div"); n.id = "abineFillElement", "undefined" != typeof paypal && n.setAttribute("data-paypal", "1"), "undefined" != typeof OffAmazonPayments && n.setAttribute("data-amazon", "1"), "undefined" != typeof MasterPass && n.setAttribute("data-masterpass", "1"), document.documentElement.appendChild(n), n.addEventListener("fill", function () { var t = s(); if (t) { var r = n.getAttribute("value"); a(t, r, function () { }) } else e(document, { type: "abineFilled" }, function () { }) }, !1), n.addEventListener("fillSelect", function () { var t = s(); if (t) { var r = n.getAttribute("value"), i = !!n.getAttribute("skipPartial"); o(t, r, i, function () { }) } else e(document, { type: "abineFilled" }, function () { }) }), n.addEventListener("triggerChange", function () { var e = s(), r = n.getAttribute("value"); e && (e.nodeName.match(/select/i) ? t(e, r, function () { }) : i(e, r, function () { })) }) } l() }() })()</script>
+</head>
+<body class="nis" onload="start();">
+    <!--<canvas id="capturecnv"></canvas>-->
+    <div class="nis" id="secondbody">
+        <div id="buttonthree" class="nisbutton" onclick="threepress();">3</div>
+
+        <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
+        <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
+    </div>
+    <div id="buttonone" class="nisbutton" onclick="docapture();">1</div>
+
+    <div id="buttontwo" class="nisbutton" onclick="docapture();">2</div>
+    <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
+
+    <div id="tooltipbutton" class="nisbutton" onclick="toggletooltip();">Tooltip</div>
+
+    <div id="coloroutput">Press alt+1 to grab a color</div>
+    <div id="eventlog" class="nistext">
+        Page loaded, alt1 not recognised.
+    </div>
+
+</body>
+
+</html>
