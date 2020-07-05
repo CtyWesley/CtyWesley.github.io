@@ -6,9 +6,13 @@
     <script type="text/javascript" src="./scripts/imagedetect.js"></script><!--Basic alt1 image processing library-->
     <script src="./scripts/jquery-3.5.1.js"></script>
 
-    <script>
+    <script type = text/javascript>
+
+            try{
         $("#capturecnv")
-            .html('<object data="https://runescape.wiki/w/Zaryte_bow"/>');
+            .html('<object data="https://runescape.wiki/w/Zaryte_bow"/>');}
+
+            catch (ex) { message(ex) }
 </script>
     <script type="text/javascript">
         capturecenter = { x: 300, y: 300 };
@@ -347,9 +351,9 @@
 
         <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
         <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
-    </div>
+    </div>    -->
     <div id="buttonone" class="nisbutton" onclick="docapture();">1</div>
-    -->
+
     <div id="buttontwo" class="nisbutton" onclick="docapture();">2</div>
     <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
 
