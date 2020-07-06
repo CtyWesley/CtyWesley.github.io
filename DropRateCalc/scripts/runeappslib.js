@@ -78,6 +78,7 @@ function dlpage(url,func,errorfunc){
 	if(errorfunc){
 		req.onerror=function(){errorfunc();};}
   req.open("GET",url,true);
+  message(url);
   req.send();
 }
 
