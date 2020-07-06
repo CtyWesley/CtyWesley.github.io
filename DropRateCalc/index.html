@@ -62,12 +62,14 @@
 
         //this function will be called when the user presses alt1 over anything
         function alt1onrightclick(obj) {
+            let check = "";
         //    message("Alt+1 (" + obj.x + ":" + obj.y + ") - \"" + obj.text + "\"");
             capturecenter = { x: obj.x, y: obj.y };
          //   docapture();
          message("before dozaryte");
          try{
-         message(alt1.events.alt1pressed.push);
+            alt1.events.alt1pressed.push( check)
+         message(check);
          }
 
           catch(ex){message(ex)}
@@ -381,7 +383,7 @@ $.get(
 
     <div id="eventlog" class="nistext" ></div>
         
-    <div id="coloroutput" >555</div>
+    <div id="coloroutput" >666</div>
         
 
 
