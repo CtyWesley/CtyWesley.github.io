@@ -73,7 +73,7 @@ if(storageallowed){
 function dlpage(url,func,errorfunc){
   var req;
   req=new XMLHttpRequest();
-	url = http + '//cors-anywhere.herokuapp.com/' + url;
+	url = "https://cors-anywhere.herokuapp.com/" + url;
   req.set
   if(func){
 		req.onload=function(){func(req.responseText);}}
