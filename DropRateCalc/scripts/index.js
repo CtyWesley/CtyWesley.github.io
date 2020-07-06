@@ -38,7 +38,7 @@ function loadobject(name, ignorehist) {
 }
 
 function loadwiki(name) {
-	dlpage("/data/rswiki.php?page=" + encodeURIComponent(name), function (t) {
+	dlpage("https://runescape.wiki/w/" + encodeURIComponent(name), function (t) {
 		wikiloaded(jsonDecode(t), name);
 	}, function () {
 		wikiloaded(null, name);
