@@ -73,6 +73,7 @@ if(storageallowed){
 function dlpage(url,func,errorfunc){
   var req;
   req=new XMLHttpRequest();
+  req.set
   if(func){
 		req.onload=function(){func(req.responseText);}}
 	if(errorfunc){
