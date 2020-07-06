@@ -22,7 +22,7 @@
 
 
 .nismainborder{position:absolute; top:0px; left:0px; right:0px; bottom:0px;}
-.nisborder{border-width:4px; border-style:solid; -moz-border-image:url('/nis/alt1-currentskin/borderSprite.png') 4 repeat; border-image:url('/nis/alt1-currentskin/borderSprite.png') 4 repeat; background:url('/nis/alt1-currentskin/background.png'); overflow:hidden;}
+.nisborder{border-width:4px; border-style:solid; -moz-border-image:url('/nis/alt1-currentskin/borderSprite.png') 4 repeat; border-image:url('/nis/alt1-currentskin/borderSprite.png') 4 repeat; background:url('images/background.png'); overflow:hidden;}
 .nisexitbutton{background:url('/nis/alt1-currentskin/exitSprite.png'); position:absolute; top:-4px; right:-4px; width:12px; height:12px; cursor:pointer; z-index:1000;}
 .nisexitbutton:hover{background-position:0px -12px;}
 .nisseperator{width:100%; height:0px; border-top:1px solid #000; border-bottom:1px solid #41555F; position:absolute; left:0px;}
@@ -73,7 +73,7 @@
 .pb2_nis .pb2-button, .nisbutton2{padding:0.15em; user-select:none; border:1px solid #485b65; border-radius:3px; background:linear-gradient(to bottom,#2a799c,#123443 25%); font-weight:bold; color:#ddd; cursor:pointer; box-shadow:0px 0px 5px #152932 inset; text-align:center; box-sizing:border-box;}
 .pb2_nis .pb2-button:hover, .nisbutton2:hover{background:linear-gradient(to bottom,#2a799c,#1b4e65 25%); color:white;}
 
-body.nis{background-image:url('/nis/alt1-currentskin/background.png'); background-color:var(--nis-col-back); overflow:hidden; margin:0px; font-family:sans-serif; font-size:13px; color:var(--nis-col-std);}
+body.nis{background-image:url('images/background.png'); background-color:var(--nis-col-back); overflow:hidden; margin:0px; font-family:sans-serif; font-size:13px; color:var(--nis-col-std);}
 
 .nisclosebutton{width:12px; height:12px; background:url('/nis/alt1-currentskin/exitSprite.png'); cursor:pointer;}
 .nisclosebutton:hover{background-position:0px -12px;}
