@@ -69,7 +69,7 @@
             //loadobject("Zaryte Bow");}
 
          //   catch(ex){message(ex + "\n" + ex.stack);}
-           
+           try{
          $.ajaxPrefilter( function (options) {
   if (options.crossDomain && jQuery.support.cors) {
     var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
@@ -79,11 +79,13 @@
 });
 
 $.get(
-    'runescape.wiki/Nex',
+    'runescape.wiki/w/Nex',
     function (response) {
         console.log("> ", response);
         $("#viewer").html(response);
-});
+});}
+
+catch(ex){message(ex + "\n" + ex.line)}
 
 
                /* var cnv = elid("capturecnv");
@@ -375,7 +377,7 @@ $.get(
         <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
         <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
     </div>  -->
-    <div id="buttonone" class="nisbutton" onclick="docapture();">2</div> 
+    <div id="buttonone" class="nisbutton" onclick="docapture();">212</div> 
 
     <div id="buttontwo" class="nisbutton" onclick="docapture();">55</div> 
     <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
