@@ -38,7 +38,7 @@ function loadobject(name, ignorehist) {
 }
 
 function loadwiki(name) {
-	dlpage("https://runeapps.org/data/rswiki.php?page=" + encodeURIComponent(name), function (t) { 
+	dlpage("https://runescape.wiki/api.php?action=query&prop=extracts&exsentences=10&exlimit=1&titles="+encodeURIComponent(name)+"%20&explaintext=1&formatversion=2", function (t) {
 		wikiloaded(jsonDecode(t), name);
 	}, function () {
 		wikiloaded(null, name);
