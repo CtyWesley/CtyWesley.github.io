@@ -23,7 +23,7 @@ function openWiki() {
 
 function loadobject(name, ignorehist) {
 	var title = htmlentities(startcaps(name)).replace(/_/g, " ");
-	elid("itemname").innerHTML = title;
+//	elid("itemname").innerHTML = title;
 	document.title = title;
 	reqobject = wikiname = gename = name;
 //	elid("gecontent").style.display = "none";
