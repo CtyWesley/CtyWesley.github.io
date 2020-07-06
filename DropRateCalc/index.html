@@ -380,14 +380,25 @@ $.get(
 
 <body class="nis" onload="start();">
     <span id="wikicontent"></span>
-  <div id="capturecnv"></div> <!-- 
-    <div class="nis" id="secondbody">
-        <div id="buttonthree" class="nisbutton" onclick="threepress();">3</div>
-
-        <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
-        <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
-    </div>  -->
-    <div id="buttonone" class="nisbutton" onclick="docapture();">1</div> 
+    <div class="nisseperator" style="top:35px; padding-right:10px;">
+		<div style="width:10px; height:1px; float:right;"></div>
+		<div id="contenttab0" onclick="settab(0);" class="contenttab activetab">Article</div>
+		<div id="contenttab1" onclick="settab(1);" style="display:none;" class="contenttab">Stats</div>
+		<div id="contenttab2" onclick="settab(2);" style="display:none;" class="contenttab">Item</div>
+		<div id="contenttab3" onclick="settab(3);" style="display:none;" class="contenttab">Info</div>
+		<div id="contenttab4" onclick="settab(4);" style="display:none;" class="contenttab">Drops</div>
+	</div>
+	<div id="contentouter">
+		<div id="tabcontent0" class="tabcontent">
+			<div id="gecontent"></div>
+			<span id="wikicontent"></span>
+		</div>
+		<div id="tabcontent1" class="tabcontent" style="display:none;"></div>
+		<div id="tabcontent2" class="tabcontent" style="display:none;"></div>
+		<div id="tabcontent3" class="tabcontent" style="display:none;"></div>
+		<div id="tabcontent4" class="tabcontent" style="display:none;"></div>
+	</div>
+    <div id="buttonone" class="nisbutton" onclick="docapture();">12</div> 
 
     <div id="buttontwo" class="nisbutton" onclick="docapture();">23</div> 
     <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
