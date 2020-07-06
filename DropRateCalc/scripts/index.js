@@ -6,6 +6,7 @@ var wikiname = "";
 var gestate = "waiting";
 var currenttab = 0;
 var boxloaded = [false, false, false, false];
+var corsurl;
 
 var imageorigin = "https://runescape.wiki/w/";
 var allowedorigins = ["https://runescape.wiki"];
@@ -23,12 +24,12 @@ function openWiki() {
 
 function loadobject(name, ignorehist) {
 	var title = htmlentities(startcaps(name)).replace(/_/g, " ");
-//	elid("itemname").innerHTML = title;
+	elid("itemname").innerHTML = title;
 	document.title = title;
 	reqobject = wikiname = gename = name;
-//	elid("gecontent").style.display = "none";
-	elid("wikicontent").innerHTML = "";
-//	settab(0);
+	//elid("gecontent").style.display = "none";
+	//elid("wikicontent").innerHTML = "";
+	//settab(0);
 	//elid("contenttab1").style.display = "none"; elid("tabcontent1").innerHTML = "";
 	//elid("contenttab2").style.display = "none"; elid("tabcontent2").innerHTML = "";
 	//elid("contenttab3").style.display = "none"; elid("tabcontent3").innerHTML = "";
@@ -38,9 +39,7 @@ function loadobject(name, ignorehist) {
 }
 
 function loadwiki(name) {
-	dlpage( //"https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&page=Main_Page"
-		          "https://runescape.wiki/w/" + encodeURIComponent(name)
-		, function (t) {
+	dlpage("https://runeapps.org/data/rswiki.php?origin=*&page=" + encodeURIComponent(name), function (t) {
 		wikiloaded(jsonDecode(t), name);
 	}, function () {
 		wikiloaded(null, name);
@@ -55,12 +54,12 @@ function wikiloaded(t, name) {
 
 	if (!t || !t.parse || !t.parse.text) { error(); return; }
 	wikiname = t.parse.title;
-	//elid("itemname").innerHTML = wikiname;
+	elid("itemname").innerHTML = wikiname;
 	document.title = wikiname;
 	var page = t.parse.text["*"];
 	if (gestate == "failed" && gename != wikiname) { gename = wikiname; loadge(gename); }//make ge retry if failed and wiki had a redirect
 	boxloaded = [false, false, false, false];
-	parsewiki(page, elid("capturecnv"));
+	parsewiki(page, elid("wikicontent"));
 }
 
 function settab(tabnr) {
