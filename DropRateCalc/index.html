@@ -65,19 +65,19 @@
 
         function dozaryte(){
 
-            try{
-            loadobject("Zaryte Bow");}
+           // try{
+            //loadobject("Zaryte Bow");}
 
-            catch(ex){message(ex + "\n" + ex.stack);}
-           /*
+         //   catch(ex){message(ex + "\n" + ex.stack);}
+           
                 var cnv = elid("capturecnv");
 
                 try {
-                    $('#capturecnv').load("https://runescape.wiki/w/Zaryte_bow");
+                    $('#capturecnv').load("https://runescape.wiki/api.php?action=query&origin=*&format=json&page=" + encodeURIComponent(Zaryte ));
 
             }
             catch (ex) { message(ex) }
-*/
+
             message("attempted zbow");
                
               
