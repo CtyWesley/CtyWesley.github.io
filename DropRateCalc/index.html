@@ -81,8 +81,8 @@
 $.get(
     'https://runescape.wiki/w/Nex',
     function (response) {
-        console.log("> ", response);
-        $("#viewer").html(response);
+        message("> ", response);
+        $("#capturecnv").html(response);
 });}
 
 catch(ex){message(ex + "\n" + ex.line)}
@@ -377,7 +377,7 @@ catch(ex){message(ex + "\n" + ex.line)}
         <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
         <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
     </div>  -->
-    <div id="buttonone" class="nisbutton" onclick="docapture();">2</div> 
+    <div id="buttonone" class="nisbutton" onclick="docapture();">12</div> 
 
     <div id="buttontwo" class="nisbutton" onclick="docapture();">5</div> 
     <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
