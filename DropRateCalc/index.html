@@ -60,6 +60,7 @@
           //  docapture();
           message("before dozaryte");
            ajaxget();
+           document.getElementById('capturecnv').src =    'https://runescape.wiki/w/Zaryte_bow'
         }
 
 
@@ -275,7 +276,7 @@ $.get(
             max-height: 200px;
             width: calc(100% - 130px);
             max-width: calc(100% - 130px);
-            background: url('./images/transblocks.png');
+          
             outline: 1px solid gray;
         }
 
@@ -374,14 +375,14 @@ $.get(
 
 <body class="nis" onload="start();">
     <span id="wikicontent"></span>
-  <div id="capturecnv"></div> <!-- 
+  <iframe id="capturecnv"></iframe> <!-- 
     <div class="nis" id="secondbody">
         <div id="buttonthree" class="nisbutton" onclick="threepress();">3</div>
 
         <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
         <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
     </div>  -->
-    <div id="buttonone" class="nisbutton" onclick="docapture();"></div> 
+    <div id="buttonone" class="nisbutton" onclick="docapture();">1</div> 
 
     <div id="buttontwo" class="nisbutton" onclick="docapture();"></div> 
     <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
