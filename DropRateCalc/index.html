@@ -62,19 +62,19 @@
 
         //this function will be called when the user presses alt1 over anything
         function alt1onrightclick(obj) {
-            const checkarray = [];
+            const checkarray = ["test\n"];
         //    message("Alt+1 (" + obj.x + ":" + obj.y + ") - \"" + obj.text + "\"");
             capturecenter = { x: obj.x, y: obj.y };
          //   docapture();
          message("before dozaryte\n");
-         try{
+      //   try{
             alt1.events.alt1pressed.push(checkarray);
             
          message(checkarray[0]+"\n");
          alt1.events.alt1pressed.push(message);
-         }
+        // }
 
-          catch(ex){message(ex)}
+    //      catch(ex){message(ex)}
      //     var stringtest = alt1.events.alt1pressed.push;
     ///    message(stringtest);
     //    var stringtest2 = stringtest.substr(stringtest.indexOf(" ") + 1);
