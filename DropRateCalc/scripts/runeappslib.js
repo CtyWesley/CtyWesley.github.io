@@ -73,7 +73,7 @@ if(storageallowed){
 function dlpage(url,func,errorfunc){
   var req;
   req=new XMLHttpRequest();
-  req.setRequestHeader("Origin", "*")
+
   req.set
   if(func){
 		req.onload=function(){func(req.responseText);}}
