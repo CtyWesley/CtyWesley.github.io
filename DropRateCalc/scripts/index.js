@@ -54,7 +54,7 @@ function wikiloaded(t, name) {
 
 	if (!t || !t.parse || !t.parse.text) { error(); return; }
 	wikiname = t.parse.title;
-	elid("itemname").innerHTML = wikiname;
+	//elid("itemname").innerHTML = wikiname;
 	document.title = wikiname;
 	var page = t.parse.text["*"];
 	if (gestate == "failed" && gename != wikiname) { gename = wikiname; loadge(gename); }//make ge retry if failed and wiki had a redirect
