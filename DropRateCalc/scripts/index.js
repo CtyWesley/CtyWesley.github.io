@@ -27,13 +27,13 @@ function loadobject(name, ignorehist) {
 	//elid("itemname").innerHTML = title;
 	document.title = title;
 	reqobject = wikiname = gename = name;
-	//elid("gecontent").style.display = "none";
-	//elid("wikicontent").innerHTML = "";
-	//settab(0);
-	//elid("contenttab1").style.display = "none"; elid("tabcontent1").innerHTML = "";
-	//elid("contenttab2").style.display = "none"; elid("tabcontent2").innerHTML = "";
-	//elid("contenttab3").style.display = "none"; elid("tabcontent3").innerHTML = "";
-	//elid("contenttab4").style.display = "none"; elid("tabcontent4").innerHTML = "";
+	elid("gecontent").style.display = "none";
+	elid("wikicontent").innerHTML = "";
+	settab(0);
+	elid("contenttab1").style.display = "none"; elid("tabcontent1").innerHTML = "";
+	elid("contenttab2").style.display = "none"; elid("tabcontent2").innerHTML = "";
+	elid("contenttab3").style.display = "none"; elid("tabcontent3").innerHTML = "";
+	elid("contenttab4").style.display = "none"; elid("tabcontent4").innerHTML = "";
 	loadwiki(name);
 	if (!ignorehist) { history.pushState(undefined, name, "?object=" + name); }
 }
@@ -45,7 +45,7 @@ function loadwiki(name) {
 		wikiloaded(null, name);
 	});
 }
-
+ 
 function wikiloaded(t, name) {
 	if (name != wikiname) { return; }//object changed while loading
 	var error = function () {
