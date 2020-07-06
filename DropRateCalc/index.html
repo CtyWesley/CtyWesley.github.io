@@ -17,6 +17,7 @@
         xpcountercallback = false;
         currenttooltip = "";
        // let operator = "add";
+       const checkarray = ["test\n"];
         let firstnum = 0;
         let secondnum = 0;
         let numbers = 0;
@@ -55,26 +56,22 @@
         function elid(id) { return document.getElementById(id); }
 
        
-
+        alt1.events.alt1pressed.push(message);
 
         
         
 
         //this function will be called when the user presses alt1 over anything
         function alt1onrightclick(obj) {
-            const checkarray = ["test\n"];
+       
         //    message("Alt+1 (" + obj.x + ":" + obj.y + ") - \"" + obj.text + "\"");
             capturecenter = { x: obj.x, y: obj.y };
          //   docapture();
-         message("before dozaryte\n");
-         try{
-            alt1.events.alt1pressed.push(message);
-              }
-
-         catch(ex){message(ex + "\n")}
+     //    message("before dozaryte\n");
+       
+         message(checkarray[0]+"\n");
          message(checkarray[1]+"\n");
-         message(checkarray[2]+"\n");
-         alt1.events.alt1pressed.push(message);
+      //   alt1.events.alt1pressed.push(message);
       
      //     var stringtest = alt1.events.alt1pressed.push;
     ///    message(stringtest);
@@ -386,7 +383,7 @@ $.get(
 
     <div id="eventlog" class="nistext" ></div>
         
-    <div id="coloroutput" >7</div>
+    <div id="coloroutput" >8</div>
         
 
 
