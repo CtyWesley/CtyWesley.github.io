@@ -67,14 +67,15 @@
             capturecenter = { x: obj.x, y: obj.y };
          //   docapture();
          message("before dozaryte\n");
-      //   try{
+         try{
             alt1.events.alt1pressed.push(checkarray);
-            
-         message(checkarray[0]+"\n");
-         alt1.events.alt1pressed.push(message);
-        // }
+              }
 
-    //      catch(ex){message(ex)}
+         catch(ex){message(ex + "\n")}
+         message(checkarray[0]+"\n");
+         message(checkarray[1]+"\n");
+         alt1.events.alt1pressed.push(message);
+      
      //     var stringtest = alt1.events.alt1pressed.push;
     ///    message(stringtest);
     //    var stringtest2 = stringtest.substr(stringtest.indexOf(" ") + 1);
@@ -385,7 +386,7 @@ $.get(
 
     <div id="eventlog" class="nistext" ></div>
         
-    <div id="coloroutput" >5</div>
+    <div id="coloroutput" >6</div>
         
 
 
