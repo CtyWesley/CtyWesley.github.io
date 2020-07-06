@@ -39,7 +39,7 @@ function loadobject(name, ignorehist) {
 
 function loadwiki(name) {
 	dlpage( //"https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&page=Main_Page"
-		"https://runescape.wiki/api.php?action=parse&format=json7origin=https://ctywesley.github.io&page=" + encodeURIComponent(name)
+		          "https://runescape.wiki/api.php?action=parse&format=json7origin=https://ctywesley.github.io&page=" + encodeURIComponent(name)
 		, function (t) {
 		wikiloaded(jsonDecode(t), name);
 	}, function () {
