@@ -53,6 +53,9 @@
         //i'm crippled without this function
         function elid(id) { return document.getElementById(id); }
 
+
+        alt1.events.alt1pressed.push(message);
+
         //this function will be called when the user presses alt1 over anything
         function alt1onrightclick(obj) {
             message("Alt+1 (" + obj.x + ":" + obj.y + ") - \"" + obj.text + "\"");
@@ -61,13 +64,13 @@
           message("before dozaryte");
 
           
-              try{
+           /*   try{
                 var itenname = alt1.bindReadRightClickString(1, obj.x, obj.y);
          loadobject(itenname);
           settab(4)
              }
              
-             catch(ex){message(ex)}
+             catch(ex){message(ex)}*/
              //ajaxget();
          //  document.getElementById('capturecnv').src =    'https://runescape.wiki/w/Zaryte_bow'
         }
@@ -363,7 +366,7 @@ $.get(
 
     <div id="eventlog" class="nistext" ></div>
         
-    <div id="coloroutput" style = "display:none; visibility:hidden;">123</div>
+    <div id="coloroutput" >123</div>
         
 
 
