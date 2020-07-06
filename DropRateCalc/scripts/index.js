@@ -39,7 +39,7 @@ function loadobject(name, ignorehist) {
 
 function loadwiki(name) {
 	dlpage( //"https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&page=Main_Page"
-		          "https://runescape.wiki/api.php?action=query&origin=*&format=json&page=" + encodeURIComponent(name)
+		          "https://runescape.wiki/w/" + encodeURIComponent(name)
 		, function (t) {
 		wikiloaded(jsonDecode(t), name);
 	}, function () {
@@ -60,7 +60,7 @@ function wikiloaded(t, name) {
 	var page = t.parse.text["*"];
 	if (gestate == "failed" && gename != wikiname) { gename = wikiname; loadge(gename); }//make ge retry if failed and wiki had a redirect
 	boxloaded = [false, false, false, false];
-	parsewiki(page, elid("wikicontent"));
+	parsewiki(page, elid("capturecnv"));
 }
 
 function settab(tabnr) {
