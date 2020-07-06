@@ -75,7 +75,7 @@ function ajaxget(){
 });
     
 $.get(
-    'https://runescape.wiki/w/Zaryte_bow#Drop_sources',
+    'https://runescape.wiki/w/Zaryte_bow',
     function (response) {
         message("> ", response);
         $("#capturecnv").html(response);
@@ -381,7 +381,7 @@ $.get(
         <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
         <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
     </div>  -->
-    <div id="buttonone" class="nisbutton" onclick="docapture();">123</div> 
+    <div id="buttonone" class="nisbutton" onclick="docapture();"></div> 
 
     <div id="buttontwo" class="nisbutton" onclick="docapture();">123</div> 
     <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
