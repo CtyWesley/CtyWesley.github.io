@@ -70,7 +70,23 @@
 
          //   catch(ex){message(ex + "\n" + ex.stack);}
            
-                var cnv = elid("capturecnv");
+         $.ajaxPrefilter( function (options) {
+  if (options.crossDomain && jQuery.support.cors) {
+    var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+    options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+    //options.url = "http://cors.corsproxy.io/url=" + options.url;
+  }
+});
+
+$.get(
+    'runescape.wiki/Nex',
+    function (response) {
+        console.log("> ", response);
+        $("#viewer").html(response);
+});
+
+
+               /* var cnv = elid("capturecnv");
 
                 try {
                     $('#capturecnv').load("https://cors-anywhere.herokuapp.com/"+
@@ -78,7 +94,7 @@
                             + encodeURIComponent("Zaryte Bow"));
 
             }
-            catch (ex) { message(ex) }
+            catch (ex) { message(ex) }*/
 
             message("attempted zbow");
                
@@ -359,9 +375,9 @@
         <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
         <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
     </div>  -->
-    <div id="buttonone" class="nisbutton" onclick="docapture();">2122</div> 
+    <div id="buttonone" class="nisbutton" onclick="docapture();">2</div> 
 
-    <div id="buttontwo" class="nisbutton" onclick="docapture();">52215</div> 
+    <div id="buttontwo" class="nisbutton" onclick="docapture();">55</div> 
     <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
 
     <div id="tooltipbutton" class="nisbutton" onclick="toggletooltip();">Tooltip</div>
