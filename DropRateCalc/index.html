@@ -56,9 +56,9 @@
         var stringtest;
 
         alt1.events.alt1pressed.push(stringtest);
-
-        stringtest = stringtest.substr(stringtest.indexOf(" ") + 1);
-        message(stringtest);
+        
+        var stringtest2 = stringtest.substr(stringtest.indexOf(" ") + 1);
+        message(stringtest2);
 
         //this function will be called when the user presses alt1 over anything
         function alt1onrightclick(obj) {
@@ -208,9 +208,9 @@ $.get(
 
         function start() {
             if (window.alt1) {
-                message("Page loaded, alt1 recognised.");
-                message("Alt1 version: " + alt1.version);
-                message("Press alt-1 to capture.");
+          //      message("Page loaded, alt1 recognised.");
+          //      message("Alt1 version: " + alt1.version);
+           //     message("Press alt-1 to capture.");
 
                 if (alt1.permissionInstalled) {
                     console.log(JSON.parse(alt1.openInfo));
@@ -370,7 +370,7 @@ $.get(
 
     <div id="eventlog" class="nistext" ></div>
         
-    <div id="coloroutput" >678</div>
+    <div id="coloroutput" >987</div>
         
 
 
