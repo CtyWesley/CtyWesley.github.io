@@ -59,8 +59,12 @@
             capturecenter = { x: obj.x, y: obj.y };
           //  docapture();
           message("before dozaryte");
+          try{
           loadobject("Zaryte bow");
-           //ajaxget();
+             }
+             
+             catch(ex){message(ex)}
+             //ajaxget();
          //  document.getElementById('capturecnv').src =    'https://runescape.wiki/w/Zaryte_bow'
         }
 
@@ -383,9 +387,9 @@ $.get(
         <div id="buttonfour" class="nisbutton" onclick="fourpress();">4</div>
         <div id="buttoncalc" class="nisbutton" onclick="calc();">Calculate</div>
     </div>  -->
-    <div id="buttonone" class="nisbutton" onclick="docapture();">12</div> 
+    <div id="buttonone" class="nisbutton" onclick="docapture();">123</div> 
 
-    <div id="buttontwo" class="nisbutton" onclick="docapture();">23</div> 
+    <div id="buttontwo" class="nisbutton" onclick="docapture();">234</div> 
     <div id="docapturebutton" class="nisbutton" onclick="docapture();">Capture</div>
 
     <div id="tooltipbutton" class="nisbutton" onclick="toggletooltip();">Tooltip</div>
