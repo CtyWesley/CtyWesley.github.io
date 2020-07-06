@@ -11,6 +11,7 @@
     <script type="text/javascript" src="./scripts/runeappslib.js"></script>
 
     <script type="text/javascript">
+        import * as a1lib from "@alt1/base";
         capturecenter = { x: 300, y: 300 };
         xpcallback = false;
         xpcountercallback = false;
@@ -64,11 +65,13 @@
         //    message("Alt+1 (" + obj.x + ":" + obj.y + ") - \"" + obj.text + "\"");
             capturecenter = { x: obj.x, y: obj.y };
          //   docapture();
+         message(alt1.events.alt1pressed.text);
           message("before dozaryte");
-          var stringtest = alt1.events.alt1pressed.push;
-        message(stringtest);
-        var stringtest2 = stringtest.substr(stringtest.indexOf(" ") + 1);
-        message(stringtest2);
+     //     var stringtest = alt1.events.alt1pressed.push;
+    ///    message(stringtest);
+    //    var stringtest2 = stringtest.substr(stringtest.indexOf(" ") + 1);
+     //   message(stringtest2);
+        
 
           
            /*   try{
@@ -374,7 +377,7 @@ $.get(
 
     <div id="eventlog" class="nistext" ></div>
         
-    <div id="coloroutput" >86444</div>
+    <div id="coloroutput" >76567</div>
         
 
 
