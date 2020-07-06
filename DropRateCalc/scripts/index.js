@@ -18,28 +18,27 @@ function start() {
 }
 
 function openWiki() { 
-//	window.open("https://runescape.wiki/w/" + encodeURIComponent(wikiname));
+	window.open("https://runescape.wiki/w/" + encodeURIComponent(wikiname));
 }
 
 function loadobject(name, ignorehist) {
 	var title = htmlentities(startcaps(name)).replace(/_/g, " ");
-	//elid("itemname").innerHTML = title;
+	elid("itemname").innerHTML = title;
 	document.title = title;
 	reqobject = wikiname = gename = name;
-//	elid("gecontent").style.display = "none";
+	elid("gecontent").style.display = "none";
 	elid("wikicontent").innerHTML = "";
-//	settab(0);
-//	elid("contenttab1").style.display = "none"; elid("tabcontent1").innerHTML = "";
-	//elid("contenttab2").style.display = "none"; elid("tabcontent2").innerHTML = "";
-//	elid("contenttab3").style.display = "none"; elid("tabcontent3").innerHTML = "";
-//	//elid("contenttab4").style.display = "none"; elid("tabcontent4").innerHTML = "";
+	settab(0);
+	elid("contenttab1").style.display = "none"; elid("tabcontent1").innerHTML = "";
+	elid("contenttab2").style.display = "none"; elid("tabcontent2").innerHTML = "";
+	elid("contenttab3").style.display = "none"; elid("tabcontent3").innerHTML = "";
+	elid("contenttab4").style.display = "none"; elid("tabcontent4").innerHTML = "";
 	loadwiki(name);
 	if (!ignorehist) { history.pushState(undefined, name, "?object=" + name); }
 }
 
 function loadwiki(name) {
-	dlpage("https://runescape.wiki/api.php?action=query&prop=extracts&exsentences=10&exlimit=1&titles="
-	+encodeURIComponent(name)+"%20&explaintext=1&formatversion=2", function (t) {
+	dlpage("https://runescape.wiki/?search=" + encodeURIComponent(name), function (t) {
 		wikiloaded(jsonDecode(t), name);
 	}, function () {
 		wikiloaded(null, name);
