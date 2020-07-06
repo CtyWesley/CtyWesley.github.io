@@ -57,14 +57,17 @@
         function alt1onrightclick(obj) {
             message("Alt+1 (" + obj.x + ":" + obj.y + ") - \"" + obj.text + "\"");
             capturecenter = { x: obj.x, y: obj.y };
-            docapture();
+         //   docapture();
           message("before dozaryte");
-        //  try{
-     //     loadobject("Zaryte bow");
-    //      settab(4)
-      //       }
+
+          
+              try{
+                var itenname = alt1.bindReadRightClickString(1, obj.x, obj.y);
+         loadobject(itenname);
+          settab(4)
+             }
              
-          //   catch(ex){message(ex)}
+             catch(ex){message(ex)}
              //ajaxget();
          //  document.getElementById('capturecnv').src =    'https://runescape.wiki/w/Zaryte_bow'
         }
@@ -335,7 +338,7 @@ $.get(
 <body class="nis" onload="start();">
   
     
-	<div id="contentouter" >
+	<div id="contentouter"  style = "display:none; visibility:hidden;">
 		<div id="tabcontent0" class="tabcontent">
 			<div id="gecontent"></div>
 			<span id="wikicontent"></span>
