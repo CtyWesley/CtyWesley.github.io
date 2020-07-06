@@ -23,11 +23,11 @@ function openWiki() {
 
 function loadobject(name, ignorehist) {
 	var title = htmlentities(startcaps("Zaryte Bow")).replace(/_/g, " ");
-	elid("itemname").innerHTML = title;
+	elid("capturecnv").innerHTML = title;
 	document.title = title;
 	reqobject = wikiname = gename = name;
 	elid("gecontent").style.display = "none";
-	elid("wikicontent").innerHTML = "";
+	elid("capturecnv").innerHTML = "";
 	settab(0);
 	elid("contenttab1").style.display = "none"; elid("tabcontent1").innerHTML = "";
 	elid("contenttab2").style.display = "none"; elid("tabcontent2").innerHTML = "";
@@ -48,7 +48,7 @@ function loadwiki(name) {
 function wikiloaded(t, name) {
 	if (name != wikiname) { return; }//object changed while loading
 	var error = function () {
-		elid("wikicontent").innerHTML = "No information found";
+		elid("capturecnv").innerHTML = "No information found";
 	}
 
 	if (!t || !t.parse || !t.parse.text) { error(); return; }
@@ -58,7 +58,7 @@ function wikiloaded(t, name) {
 	var page = t.parse.text["*"];
 	if (gestate == "failed" && gename != wikiname) { gename = wikiname; loadge(gename); }//make ge retry if failed and wiki had a redirect
 	boxloaded = [false, false, false, false];
-	parsewiki(page, elid("wikicontent"));
+	parsewiki(page, elid("capturecnv"));
 }
 
 function settab(tabnr) {
