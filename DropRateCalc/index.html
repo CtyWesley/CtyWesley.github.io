@@ -64,6 +64,8 @@
              try{string222 = obj.text.substr(obj.text.indexOf(" ") + 1);
              message("\n"+string222);}
              catch(ex){message(ex);}
+           //  loadobject(string222);
+           dozaryte(string222);
      // message(obj.text);
  
 
@@ -91,8 +93,7 @@
              }
              
              catch(ex){message(ex)}*/
-             //ajaxget();
-         //  document.getElementById('capturecnv').src =    'https://runescape.wiki/w/Zaryte_bow'
+            
         }
 
 
@@ -116,10 +117,10 @@ $.get(
 
 
 
-        function dozaryte(){
+        function dozaryte(itemid){
 
             try{
-            loadobject("Zaryte Bow");}
+            loadobject(itemid);}
          //   ajaxget();
             catch(ex){message(ex + "\n" + ex.stack);}
          
