@@ -21,8 +21,20 @@ label.texter{
 
 *.regentry{
 	background: #fff;
-	width: 100px;
+	width: 200px;
 	float:right;
+	
+}
+
+*.button{
+	color: #000;
+	background-color: #000;
+	background: #000;
+}
+
+#regenter{
+	color: #000;
+	
 	
 }
 
