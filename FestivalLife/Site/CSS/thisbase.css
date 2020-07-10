@@ -27,16 +27,13 @@ label.texter{
 }
 
 *.button{
-	color: #000;
-	background-color: #000;
-	background: #000;
+	 cursor: pointer;
+	background: #999;
+	border-radius: 15px;
+	padding: 5px;
 }
 
-#regenter{
-	color: #000;
-	
-	
-}
+
 
 #TitleDiv{
 	height: 35px;
