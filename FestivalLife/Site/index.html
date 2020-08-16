@@ -4,6 +4,9 @@
 <link rel="stylesheet" type="text/css" href="./CSS/thisbase.css">
 <meta charset="utf-8">
 <title>Untitled Document</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src = "./Scripts/main.js"></script>
+	<script src = "./Scripts/app.js"></script>
 </head>
 
 <body>
@@ -18,13 +21,34 @@
     </div>
 	  <div style="height: 5px"></div>
     <div>
+		
       <label class="texter" for="email" style = "display: inline-block">Enter your Password:</label>
       <input class="regentry" type="email" id="regpass" name="email" style = "display: inline-block">
 	  </div>
+	  
 	  <div id = "butcen">
-	  <button class ="button" id = "regenter" style="margin:auto;">Register</button>
+	  <button class ="button" id = "regenter" style="margin:auto;" 
+	  v-on:click="reverseMessage">{{Register}}
 	  </div>
   </div>
 </div>
 </body>
+	
+	<script>
+var RegBut = new Vue({
+  el: '#butcen',
+  data: {
+    Register: 'Register'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.Register = this.Register.split('').reverse().join('')
+    }
+  }
+})
+	</script>
+			
+			
+	
+	
 </html>
