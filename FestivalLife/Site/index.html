@@ -5,8 +5,8 @@
 <meta charset="utf-8">
 <title>Untitled Document</title>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src = "./Scripts/main.js"></script>
-	<script src = "./Scripts/app.js"></script>
+	<script type="module" src = "./Scripts/main.js"></script>
+	<script type="module"src = "./Scripts/app.js"></script>
 </head>
 
 <body>
@@ -42,7 +42,9 @@ var RegBut = new Vue({
   },
   methods: {
     reverseMessage: function () {
-      this.Register = this.Register.split('').reverse().join('')
+		
+		
+     
     }
   }
 })

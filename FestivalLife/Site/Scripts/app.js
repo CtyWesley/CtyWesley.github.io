@@ -1,8 +1,3 @@
-<template>
-  <amplify-authenticator>
-    <div>
-      My App
-      <amplify-sign-out></amplify-sign-out>
-    </div>
-  </amplify-authenticator>
-</template>
+//import Amplify from 'aws-amplify';
+//import awsconfig from './aws-exports';
+//Amplify.configure(awsconfig);

@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"festivallife3352d549": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
