@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="StripeConnect.exe" version="1.0.0.1" publicKeyToken="6392f9fc82b1e44b" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="StripeConnect" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="StripeConnect.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Firebase.Auth.dll" size="51712">
+      <assemblyIdentity name="Firebase.Auth" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>haJFIh8LDnE9rPrR3FBNXIDqr5jjT40EuTVuU1EWjjI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FireSharp.dll" size="40960">
+      <assemblyIdentity name="FireSharp" version="2.0.3.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>/yPnSkw9zjSYKzX4z7Div/FlnEAFldxVBre7ht1KBjo=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Bcl.AsyncInterfaces.dll" size="21064">
+      <assemblyIdentity name="Microsoft.Bcl.AsyncInterfaces" version="1.0.0.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>7VvGBff5/MOCGDq+8Gw1Ta2UartCoHYxcSB3shV9a8k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Threading.Tasks.dll" size="37104">
+      <assemblyIdentity name="Microsoft.Threading.Tasks" version="1.0.12.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Xynhbt/1N56T1b6b7kzd+YEyuEMmAnaIURrA8xV6r5Q=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Threading.Tasks.Extensions.dll" size="31520">
+      <assemblyIdentity name="Microsoft.Threading.Tasks.Extensions" version="1.0.12.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>kvHQ1sz7DQMHifPFxjb83Qj20FQaWlTxhejs2FWS4/k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Threading.Tasks.Extensions.Desktop.dll" size="47424">
+      <assemblyIdentity name="Microsoft.Threading.Tasks.Extensions.Desktop" version="1.0.168.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9xYhxHxhDgiGhGz1PZVf0OdEiVH5nswi+s1HST75eoc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="662528">
+      <assemblyIdentity name="Newtonsoft.Json" version="11.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9Yw3T/yq5ONtdA2Q+/f+cNCrtzKM2a86CntwgD6ZS6Q=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Stripe.net.dll" size="994816">
+      <assemblyIdentity name="Stripe.net" version="39.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>cXonrME28UYTPRbzJQZdz4IRUFWj7/YQ8gOcPWG7BGY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StripeConnect.exe" size="26080">
+      <assemblyIdentity name="StripeConnect" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>purbFbFV+1GDVliJydaXfahJ8RN82bsyQ90AK+kJLgc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Diagnostics.DiagnosticSource.dll" size="35760">
+      <assemblyIdentity name="System.Diagnostics.DiagnosticSource" version="4.0.1.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>0iEzgYowMT4L7PAQ14pValazTqNh29M1iMmBdjH+1UA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Net.Http.Extensions.dll" size="22224">
+      <assemblyIdentity name="System.Net.Http.Extensions" version="2.2.28.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>nAvdqzxnwicWtj3RbAroZwbua70Stm01e5CW2sxOWRc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Net.Http.Primitives.dll" size="21720">
+      <assemblyIdentity name="System.Net.Http.Primitives" version="4.2.28.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>OAsuKYFleY20I2jQZsMEnC3Yw9Pq8UJcaoazZHuitXc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Runtime.CompilerServices.Unsafe.dll" size="23600">
+      <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" version="4.0.4.1" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>GtLdciXVFioP06OzN6GUlEhSDjEwpLyOAQ7AL3YJdQA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Threading.Tasks.Extensions.dll" size="33008">
+      <assemblyIdentity name="System.Threading.Tasks.Extensions" version="4.2.0.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>LJytZBDjfkT6c8zLV29BgYTxrloKJX4WWhNr2qlBoMY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="StripeConnect.exe.config" size="1039">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>WyTCT/IVt0fxL3n5bWdfM/nZXU/xlLQeWtweY7b/eUU=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=LAPTOP-A9E2GACP\wjbar" issuerKeyHash="de60dd55f6459821f7d340695741ffc84f7b90e2" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>x4Sc8/2amgokskcNAhZYJH1DVm7iwuxnN4p9YLMyVuc=</DigestValue></Reference></SignedInfo><SignatureValue>x7vK1sNXcbE7VKNrSfAm6LYgF1ymelnJt7pjLiHxme/YdAUlUv4so7NugeCNu7u/lEKYFWoU0/oEnBqPmAmTmDtDGyjPW94JlZY4G7E1D4JM2YEon/hpMrrzmW+Shyg3PRpOrTHmQbB0dNIKcT6gNcE8LlWfud6uhbueCxEvypM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>yeYGGAOr+yrQD0Zp187H50FYHHUm21mX/FOXvv3kZj8qmg4o0UpOezD/5lUm/ndxfMCZAJ67lG31qOuukg5THD9RPNE2Uep9bpiA7he7kb46btZU47LnOXrGThfEn4S7Gp+kEShDRqXeOTcDVN9EiNFrJaCdvttX+QwEVr1BRxU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="e75632b3607d8a3767ecc2e26e56437d245816020d47b2240a9a9afdf39c84c7" Description="" Url=""><as:assemblyIdentity name="StripeConnect.exe" version="1.0.0.1" publicKeyToken="6392f9fc82b1e44b" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LAPTOP-A9E2GACP\wjbar</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>hPy7ox3XaMRTmxZKeAsNlLoM6otE4m1yPdubyWv/kAI=</DigestValue></Reference></SignedInfo><SignatureValue>ycHTSJ0e3SXuX13GPRM6NbtleX17djC1OS6d4aZYw3jKihwQnDF+lX+VpO1uuiYgmhMEQeGkFJkYhF9J1lsMpcBqusyG4vDM6VYLBMwAsEgo6g9WiCyGyQPKXpjqtf26gsAMGwrvPckTLFrxDq7Jp7+scLhSL039bOIlbKGtWDQ=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yeYGGAOr+yrQD0Zp187H50FYHHUm21mX/FOXvv3kZj8qmg4o0UpOezD/5lUm/ndxfMCZAJ67lG31qOuukg5THD9RPNE2Uep9bpiA7he7kb46btZU47LnOXrGThfEn4S7Gp+kEShDRqXeOTcDVN9EiNFrJaCdvttX+QwEVr1BRxU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQGG+S+1dvdaJP4MyvP4HZCDANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioATABBAFAAVABPAFAALQBBADkARQAyAEcAQQBDAFAAXAB3AGoAYgBhAHIwHhcNMjEwMjI1MTg1MTQxWhcNMjIwMjI2MDA1MTQxWjA1MTMwMQYDVQQDHioATABBAFAAVABPAFAALQBBADkARQAyAEcAQQBDAFAAXAB3AGoAYgBhAHIwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMnmBhgDq/sq0A9GadfOx+dBWBx1JttZl/xTl7795GY/KpoOKNFKTnsw/+ZVJv53cXzAmQCeu5Rt9ajrrpIOUxw/UTzRNlHqfW6YgO4Xu5G+Om7WVOOy5zl6xk4XxJ+EuxqfpBEoQ0al3jk3A1TfRIjRayWgnb7bV/kMBFa9QUcVAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAAHOFhmWjvU0hgZL8jTux3L7c0Jlcu1wszjJNtZFhIn67KRp5DeKAY0/BXQAJWtHKpefp3XXsxAvdP7OLNc5oy1uFEuFdEhY0gCbym2/m+vygVW+dh0zzPuwYC3EZMLFL0ZIVUbDLA48aYX5KE2tYyshPW4ILneqoYer+fhqeVr4=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
