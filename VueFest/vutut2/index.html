@@ -1,0 +1,38 @@
+<html>
+    
+<head>
+    <script src="https://unpkg.com/vue"></script> 
+
+    <link rel="stylesheet" href="styles.css">
+<title>VUE JS TUT</title>
+
+
+</head>
+<body>
+
+<div id="vue-app">
+<h1>VUE TUTORIAL</h1>
+<a :href="website">Runescape</a>
+
+<input type="text" :value="age"/>
+
+<p v-html = "websiteTag"></p>
+<button @click="add(10)">Add a year</button>
+<button @click="subtract(3)">Take a year</button>
+
+<div id = "canvas" 
+v-on:mousemove="UpdateXY">{{x}}, {{y}}</div>
+
+<a @click.prevent="click" href="websiteTag">Runescape</a>
+<label id="onkey">{{keycheck}}</label>
+<h1>{{keycheck}}</h1>
+<input type="text" @keyup.s="keyedup">
+
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
